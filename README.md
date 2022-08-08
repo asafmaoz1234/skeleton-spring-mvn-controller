@@ -5,10 +5,12 @@ a java-springboot-maven project that is going to accept REST requests.
 This repository is ready with a SampleController that has CRUD endpoints ready
 and a sample Autowired Model.
 
-All endpoints in the controller point to the same path (same mapping), and differ in the HTTP method type, 
+- All endpoints in the controller point to the same path (same mapping), and differ in the HTTP method type, 
 path variables, response type and request object.
 
-Basic unit testing is set up using Junit and Mockito
+- Basic unit testing is set up using Junit and Mockito
+
+- Postman collection to fast track your manual testing is in the resources directory.
 
 # Getting Started
 - Fork/Clone this repository.

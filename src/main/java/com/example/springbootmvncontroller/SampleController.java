@@ -10,8 +10,11 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/v1/samplepath")
 public class SampleController {
 
-    @Autowired
-    SampleModel sampleModel;
+    private final SampleModel sampleModel;
+
+    public SampleController(SampleModel sampleModel) {
+        this.sampleModel = sampleModel;
+    }
 
     @GetMapping
     public ResponseEntity<Integer> getSample(){
@@ -19,7 +22,7 @@ public class SampleController {
         return ResponseEntity.ok().body(response);
     }
 
-    @PostMapping("/{itemId}")
+    @PostMapping
     public ResponseEntity<Void> postSample(@RequestBody SamplePayload samplePayload){
         this.sampleModel.post(samplePayload);
         return ResponseEntity.ok().build();

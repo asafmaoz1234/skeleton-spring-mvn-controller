@@ -1,14 +1,18 @@
-# Skeleton spring boot + mvn controller with
-This is a basic skeleton project for when you want to **quick start**
-a java-springboot-maven project that is going to accept **REST requests**.
+# Skeleton spring boot controller
+A basic skeleton project for when you want to **quick start**
+a java-springboot-maven project that is going to use **REST requests**.
 
-This repository is ready with a SampleController that has **CRUD endpoints ready**, a sample Autowired Model and payload class for POST/PUT.
+This repository contains:
+<ul>
+    <li>open api spec oas.yaml</li>
+    <li>SampleController with <b>GET/POST/PUT/DELETE</b> endpoints.</li> 
+    <li>A sample Autowired Model</li> 
+    <li>Sample payload pojo for POST/PUT requests</li>
+    <li>A sample response pojo.</li>
+    <li>Basic unit testing - Junit and Mockito</li>
+    <li>Postman collection in the resources directory for easier manual testing.</li>
+</ul>
 
-- **CRUD endpoints** differ in the HTTP method type, path variables, response type and request object.
-
-- **Basic unit testing** is set up using Junit and Mockito
-
-- **Postman collection** to fast track your manual testing is in the resources directory.
 
 # Getting Started
 - Fork/Clone this repository.

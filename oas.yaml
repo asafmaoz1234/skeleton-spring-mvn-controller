@@ -1,0 +1,140 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: Skeleton controller
+  license:
+    name: MIT
+servers:
+  - url: http://localhost:8080/api/v1
+paths:
+  /samplepath:
+    get:
+      summary: List all samples
+      operationId: listSamples
+      tags:
+        - get all samples
+      parameters:
+      responses:
+        '200':
+          description: An array of samples
+          headers:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Samples"
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /samplepath/{itemId}:
+    get:
+      summary: Info for a specific sample
+      operationId: showSampleById
+      tags:
+        - get sample
+      parameters:
+        - name: itemId
+          in: path
+          required: true
+          description: The id of the sample to retrieve
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Sample"
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+    post:
+      summary: Create a sample
+      operationId: createSample
+      tags:
+        - create sample
+      responses:
+        '201':
+          description: Null response
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+    put:
+      summary: Modify a sample
+      operationId: updateSample
+      tags:
+        - modify sample
+      parameters:
+        - name: itemId
+          in: path
+          required: true
+          description: The id of the sample to modify
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Null response
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+    delete:
+      summary: Delete a sample
+      operationId: deleteSample
+      tags:
+        - delete sample
+      parameters:
+        - name: itemId
+          in: path
+          required: true
+          description: The id of the sample to delete
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Null response
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+components:
+  schemas:
+    Sample:
+      type: object
+      required:
+        - id
+        - data
+      properties:
+        id:
+          type: integer
+          format: int64
+        data:
+          type: string
+    Samples:
+      type: array
+      items:
+        $ref: "#/components/schemas/Sample"
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string

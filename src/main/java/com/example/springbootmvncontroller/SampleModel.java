@@ -2,12 +2,22 @@ package com.example.springbootmvncontroller;
 
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class SampleModel {
 
-    public Integer get() {
-        System.out.println("in get");
-        return 10;
+    public List<Sample> getAll() {
+        System.out.println("in getAll");
+        List<Sample> response = new ArrayList<>();
+        response.add(new Sample(10, "data"));
+        return response;
+    }
+
+    public Sample getOne(Integer id) {
+        System.out.println("in getOne " + id);
+        return new Sample(10, "data");
     }
 
     public void post(SamplePayload samplePayload) {

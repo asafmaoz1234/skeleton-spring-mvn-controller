@@ -1,4 +1,3 @@
-
 # Spring Boot REST API Skeleton Controller
 
 Welcome to the **Spring Boot REST API Skeleton Controller**—your go-to starter kit for rapidly developing Spring-based RESTful services.<br>
